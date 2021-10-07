@@ -36,6 +36,9 @@ public class Server {
             ChannelFuture future = strap.bind(8888).sync();
             future.channel().closeFuture().sync();
         } finally {
+            /*
+                以下不细究
+             */
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
