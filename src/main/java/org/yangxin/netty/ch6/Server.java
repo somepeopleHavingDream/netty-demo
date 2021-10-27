@@ -13,6 +13,7 @@ import io.netty.util.AttributeKey;
  * @author yangxin
  * 2021/10/25 下午8:57
  */
+@SuppressWarnings("AlibabaRemoveCommentedCode")
 public class Server {
 
     public static void main(String[] args) throws InterruptedException {
@@ -27,8 +28,10 @@ public class Server {
                     .childAttr(AttributeKey.newInstance("childAttr"), "childAttrValue")
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
-                        protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new InboundHandlerA(), new InboundHandlerC(), new InboundHandlerB());
+                        protected void initChannel(SocketChannel ch) {
+//                            ch.pipeline().addLast(new InboundHandlerA(), new InboundHandlerC(), new InboundHandlerB());
+                            ch.pipeline().addLast(new OutboundHandlerA(),
+                                    new OutboundHandlerB(), new OutboundHandlerC());
                         }
                     });
 
