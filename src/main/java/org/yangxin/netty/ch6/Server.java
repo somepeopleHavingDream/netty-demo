@@ -13,7 +13,7 @@ import io.netty.util.AttributeKey;
  * @author yangxin
  * 2021/10/25 下午8:57
  */
-@SuppressWarnings("AlibabaRemoveCommentedCode")
+@SuppressWarnings({"AlibabaRemoveCommentedCode", "CommentedOutCode"})
 public class Server {
 
     public static void main(String[] args) throws InterruptedException {
@@ -29,9 +29,9 @@ public class Server {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) {
-//                            ch.pipeline().addLast(new InboundHandlerA(), new InboundHandlerC(), new InboundHandlerB());
-                            ch.pipeline().addLast(new OutboundHandlerA(),
-                                    new OutboundHandlerB(), new OutboundHandlerC());
+                            ch.pipeline().addLast(new InboundHandlerA(), new InboundHandlerC(), new InboundHandlerB());
+//                            ch.pipeline().addLast(new OutboundHandlerA(),
+//                                    new OutboundHandlerB(), new OutboundHandlerC());
                         }
                     });
 

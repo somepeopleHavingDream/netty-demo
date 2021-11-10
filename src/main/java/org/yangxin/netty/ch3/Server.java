@@ -7,6 +7,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.util.AttributeKey;
 
 /**
@@ -29,7 +30,12 @@ public class Server {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) {
-                            ch.pipeline().addLast(new AuthHandler());
+                            ch.pipeline().addLast(new LengthFieldBasedFrameDecoder(9999,
+                                    0,
+                                    4,
+                                    -4,
+                                    0),
+                                    new AuthHandler());
                         }
                     });
 
