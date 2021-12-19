@@ -6,7 +6,7 @@ import io.netty.util.concurrent.FastThreadLocal;
  * @author yangxin
  * 2021/11/5 下午9:50
  */
-@SuppressWarnings({"AlibabaAvoidManuallyCreateThread", "FieldMayBeFinal"})
+@SuppressWarnings({"AlibabaAvoidManuallyCreateThread", "FieldMayBeFinal", "CommentedOutCode"})
 public class FastThreadLocalTest {
 
     private static FastThreadLocal<Object> threadLocal0 = new FastThreadLocal<Object>() {
