@@ -5,7 +5,6 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
 
 import static org.yangxin.netty.ch12.connection.Constant.BEGIN_PORT;
 import static org.yangxin.netty.ch12.connection.Constant.N_PORT;
