@@ -16,11 +16,13 @@ import static org.yangxin.netty.ch12.thread.Constant.PORT;
  * @author yangxin
  * 2021/12/26 13:38
  */
+@SuppressWarnings("AlibabaRemoveCommentedCode")
 public class Server {
 
     public static void main(String[] args) {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
+//        EventLoopGroup businessGroup = new NioEventLoopGroup(16);
         EventLoopGroup businessGroup = new NioEventLoopGroup(1000);
 
         ServerBootstrap bootstrap = new ServerBootstrap();
@@ -33,6 +35,7 @@ public class Server {
             protected void initChannel(SocketChannel socketChannel) {
                 socketChannel.pipeline().addLast(new FixedLengthFrameDecoder(Long.BYTES));
                 socketChannel.pipeline().addLast(businessGroup, ServerBusinessHandler.INSTANCE);
+//                socketChannel.pipeline().addLast(ServerBusinessThreadPoolHandler.INSTANCE);
             }
         });
 

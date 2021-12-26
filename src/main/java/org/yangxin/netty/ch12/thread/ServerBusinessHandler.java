@@ -27,7 +27,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<ByteBuf> 
         ctx.channel().writeAndFlush(result);
     }
 
-    private Object getResult(ByteBuf data) {
+    Object getResult(ByteBuf data) {
         /*
             90.0% == 1ms
             95.0% == 10ms 1000 50 > 10ms
